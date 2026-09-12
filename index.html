@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>إلى آيات ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Reem+Kufi+Ink&display=swap');
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;font-family:Cairo,Arial,sans-serif;color:#65133d;overflow-x:hidden;background:linear-gradient(135deg,#fff0f7,#ffd0e4 50%,#ffafd2)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.45;background-image:radial-gradient(#fff 1.5px,transparent 1.5px);background-size:30px 30px}
+.screen{display:none;min-height:100vh;align-items:center;justify-content:center;padding:28px 16px;position:relative}
+.screen.active{display:flex}
+.card{width:min(920px,100%);padding:35px 24px;border-radius:38px;background:rgba(255,255,255,.72);border:2px solid rgba(255,255,255,.85);box-shadow:0 25px 80px rgba(136,24,76,.2),inset 0 1px #fff;backdrop-filter:blur(18px);text-align:center}
+.badge{display:inline-block;padding:7px 17px;border-radius:99px;background:#fff;color:#d21f70;font-weight:800;box-shadow:0 8px 25px #b915641a}
+h1{font-family:"Reem Kufi Ink",Cairo,sans-serif;color:#d51f70;font-size:clamp(38px,8vw,76px);line-height:1.25;margin:16px 0 8px}
+h2{color:#c91d68}
+.subtitle{font-size:clamp(17px,3vw,23px);color:#96365f}
+.buttons{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:25px}
+button,.btn{border:0;border-radius:999px;padding:13px 28px;font:800 17px Cairo;cursor:pointer;color:#fff;background:linear-gradient(135deg,#ff4f9b,#c91368);box-shadow:0 12px 28px #c9136835;transition:.2s}
+button:hover,.btn:hover{transform:translateY(-3px);box-shadow:0 16px 30px #c9136850}
+.secondary{background:#fff;color:#bd346b;border:2px solid #ffc1d9}
+.sticker{position:fixed;z-index:3;font-size:clamp(32px,6vw,64px);filter:drop-shadow(0 7px 7px #8d174433);animation:float 4s ease-in-out infinite;user-select:none}
+.a{top:4%;left:4%}.b{top:9%;right:4%;animation-delay:.7s}.c{bottom:7%;left:6%;animation-delay:1.4s}.d{bottom:9%;right:5%;animation-delay:2s}.e{top:47%;left:1%;animation-delay:1s}.f{top:45%;right:1%;animation-delay:2.4s}
+@keyframes float{50%{transform:translateY(-13px) rotate(7deg)}}
+.letter{margin-top:18px;text-align:right;line-height:2.15;font-size:18px;padding:25px;background:#fff9fc;border:1px solid #ffd1e3;border-radius:26px;max-height:64vh;overflow:auto;box-shadow:inset 0 0 30px #ff7db61c}
+.letter p{margin:0 0 18px}.pink{color:#d51f70;font-weight:800}
+.progress{height:7px;background:#ffd8e8;border-radius:99px;overflow:hidden;margin:16px 0}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff4f9b,#c91368);transition:.3s}
+.secret{font-size:19px;line-height:2.1;background:#fff9fc;padding:25px;border-radius:26px;border:1px solid #ffd1e3}
+.music{padding:25px;background:linear-gradient(135deg,#fff,#fff0f7);border-radius:28px;border:1px solid #ffc4db}
+.music-icon{font-size:70px;animation:pulse 1.3s infinite}
+.small{font-size:13px;color:#a4587c}
+@keyframes pulse{50%{transform:scale(1.12)}}
+.fall{position:fixed;top:-30px;z-index:50;pointer-events:none;animation:fall 4s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="sticker a">🌸</div><div class="sticker b">🎀</div><div class="sticker c">🧸</div>
+<div class="sticker d">💗</div><div class="sticker e">✨</div><div class="sticker f">🦋</div>
+
+<section id="home" class="screen active">
+<div class="card">
+<span class="badge">💌 رسالة خاصة</span>
+<h1>آيات… 🌷</h1>
+<div class="subtitle">هل تحبين من أحبك؟ <b>♡</b></div>
+<div class="buttons">
+<button onclick="go('poem');celebrate()">نعم 💗</button>
+<button class="secondary" onclick="tease()">لا 😳</button>
+</div>
+<p id="tease" class="small"></p>
+</div>
+</section>
+
+<section id="poem" class="screen">
+<div class="card">
+<span class="badge">إلى آيات، من القلب 🌹</span>
+<h1>كلمات لكِ</h1>
+<div class="progress"><span id="bar"></span></div>
+<div class="letter" id="letter">
+<p>يا آيات، يا اسمًا إذا مرّ على القلب أزهرت فيه الجهات، وكأن الربيع اختار من بين كل الأسماء اسمكِ ليقول: <span class="pink">هنا الجمال.</span></p>
+<p>أحبكِ حبًا هادئًا لا يحتاج إلى ضجيج، ولا يطلب من الدنيا شاهدًا؛ يكفيني أن أعرف أنكِ في قلبي، وأن لهذا القلب مكانًا لا يشبهه مكان.</p>
+<p>يا آيات، إن كان للعذرية في الحب معنى، فأنتِ معناها الجميل؛ حبّ يصون ولا يملك، يشتاق ولا يؤذي، ويقترب بالكلمة الطيبة ويترك للروح كرامتها وسماءها.</p>
+<p>أنتِ لستِ مجرد وجه أحببته، بل حكاية أحب أن أقرأها كل يوم، وضحكة أتمنى أن تبقى خفيفة على قلبك، واسم حين أكتبه أشعر أن الحروف أصبحت أجمل.</p>
+<p>ولو كان بإمكاني أن أهديكِ شيئًا يليق بكِ، لأهديتكِ صباحًا لا يحزن، وليلًا لا يطول، ووردًا لا يذبل، ودعاءً يرافقكِ أينما ذهبتِ.</p>
+<p>أحب تفاصيلكِ الصغيرة؛ طريقتكِ في الكلام، حضوركِ، والأشياء التي ربما لا تنتبهين إليها، لكنها عندي نجوم كثيرة في سماء واحدة.</p>
+<p>ولا أريد منكِ شيئًا سوى أن تبقي كما أنتِ: جميلة الروح، عزيزة القلب. وأن تعرفي دائمًا أن هناك من يرى وجودكِ نعمة تستحق الشكر.</p>
+<p>قد لا أملك أفخم الكلمات، لكنني أملك شعورًا صادقًا. ولا أستطيع أن أعدكِ بدنيا بلا حزن، لكنني أتمنى لكِ من الفرح ما يجعل الحزن عابرًا وخفيفًا.</p>
+<p>يا آيات، لو كان الحب قصيدة، لكتبت اسمكِ في مطلعها؛ ولو كان وردة، لاخترت لها أجمل الألوان؛ ولو كان سماءً، لجعلت فيها قمرًا يذكّرني بكِ كلما نظرت إليه.</p>
+<p>وإن سألتِني ماذا أريد من هذه الكلمات، فجوابي بسيط: أريدها ذكرى صغيرة تقول لكِ إنكِ <span class="pink">عزيزة جدًا على قلبي.</span></p>
+<p>فيا آيات… إن كان في قلبكِ مكان لحب صادق، فاعلمي أن قلبي قد اختار مكانه منذ زمن. 🌷</p>
+</div>
+<div class="buttons"><button onclick="go('secret');celebrate()">كملتِ القراءة 💕</button></div>
+</div>
+</section>
+
+<section id="secret" class="screen">
+<div class="card">
+<span class="badge">🤫 سر صغير</span>
+<h1>ولكِ مني وعد</h1>
+<div class="secret">
+آيات، لا أعدكِ بحياة كاملة بلا تعب، ولا بقصة بلا أيام صعبة؛
+لكنني أعدكِ أن يكون حبي لكِ محترمًا، صادقًا وحنونًا.
+أن أفرح لفرحكِ، وأحترم قلبكِ، وأتمنى لكِ الخير حتى في أبسط تفاصيل يومكِ.
+<br><br><strong>أنتِ لستِ مجرد كلمة حب… أنتِ السبب الذي جعل كلمة «حب» لها معنى. 🌸</strong>
+</div>
+<div class="buttons"><button onclick="go('music');celebrate()">آخر مفاجأة 🎀</button></div>
+</div>
+</section>
+
+<section id="music" class="screen">
+<div class="card">
+<span class="badge">🎧 الأغنية لكِ</span>
+<h1>آيات 💗</h1>
+<div class="music">
+<div class="music-icon">🎶🌷🎀</div>
+<h2>هذه الأغنية اخترتها لكِ</h2>
+<p>اضغطي الزر لتفتح الأغنية في YouTube.</p>
+<a class="btn" href="https://youtu.be/CeW8OHlX4og?si=G9Jsi_DXJJlRcsf4" target="_blank" rel="noopener">▶ تشغيل الأغنية</a>
+<p class="small">YouTube سيفتح في تبويب جديد.</p>
+</div>
+<div class="buttons"><button onclick="go('home')">إعادة من البداية ↺</button></div>
+</div>
+</section>
+
+<script>
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function tease(){document.getElementById('tease').textContent='😳 هذا الزر ما أريده… جربي الوردي 💗'}
+function celebrate(){
+ const icons=['💗','💕','🌸','🌷','✨','🎀','🦋','💖'];
+ for(let i=0;i<38;i++){
+  const x=document.createElement('span');x.className='fall';x.textContent=icons[Math.floor(Math.random()*icons.length)];
+  x.style.left=Math.random()*100+'vw';x.style.fontSize=(16+Math.random()*25)+'px';
+  x.style.animationDuration=(2.5+Math.random()*2.5)+'s';x.style.animationDelay=Math.random()*.5+'s';
+  document.body.appendChild(x);setTimeout(()=>x.remove(),5500)
+ }
+}
+document.getElementById('letter').addEventListener('scroll',function(){
+ const max=this.scrollHeight-this.clientHeight;
+ document.getElementById('bar').style.width=(max?this.scrollTop/max*100:100)+'%'
+})
+</script>
+</body>
+</html>
