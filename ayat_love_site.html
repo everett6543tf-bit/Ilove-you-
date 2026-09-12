@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إلى آيات ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Reem+Kufi+Ink&display=swap');
+
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Cairo,sans-serif}
+body{
+  overflow-x:hidden;
+  color:#68133f;
+  background:
+    radial-gradient(circle at 10% 10%,#fff 0 4%,transparent 18%),
+    radial-gradient(circle at 90% 20%,#ffd1e5 0 4%,transparent 18%),
+    linear-gradient(135deg,#ffeff7,#ffd0e5 48%,#ffb5d5);
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.45;
+  background-image:radial-gradient(#fff 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.screen{
+  min-height:100vh;display:none;align-items:center;justify-content:center;
+  padding:28px 18px;position:relative;
+}
+.screen.active{display:flex}
+.card{
+  width:min(900px,100%);position:relative;padding:42px 28px;
+  border:2px solid rgba(255,255,255,.8);border-radius:36px;
+  background:rgba(255,255,255,.68);backdrop-filter:blur(18px);
+  box-shadow:0 25px 80px rgba(164,30,91,.22),inset 0 1px 0 #fff;
+  text-align:center;
+}
+.badge{
+  display:inline-block;background:#fff0f7;color:#d62b78;border-radius:999px;
+  padding:7px 16px;font-weight:800;box-shadow:0 7px 20px #d62b7820
+}
+h1{font-family:"Reem Kufi Ink",Cairo;font-size:clamp(38px,8vw,76px);margin:18px 0 8px;color:#d51f70}
+.subtitle{font-size:clamp(16px,3vw,22px);color:#9b3a67}
+.buttons{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+button,.linkbtn{
+ border:0;cursor:pointer;text-decoration:none;color:#fff;font:800 17px Cairo;
+ padding:13px 28px;border-radius:999px;background:linear-gradient(135deg,#ff4d98,#c91468);
+ box-shadow:0 12px 25px #c9146838;transition:.2s transform,.2s box-shadow;
+}
+button:hover,.linkbtn:hover{transform:translateY(-3px);box-shadow:0 16px 30px #c9146850}
+.no{background:#fff;color:#b83368;border:2px solid #ffc0d9}
+.sticker{
+ position:fixed;font-size:clamp(32px,5vw,62px);animation:float 4s ease-in-out infinite;
+ filter:drop-shadow(0 7px 7px #9b205533);z-index:2;user-select:none
+}
+.s1{top:5%;left:5%}.s2{top:12%;right:5%;animation-delay:.7s}.s3{bottom:8%;left:7%;animation-delay:1.3s}
+.s4{bottom:12%;right:6%;animation-delay:2s}.s5{top:42%;left:1%;animation-delay:1.8s}.s6{top:52%;right:1%;animation-delay:.4s}
+@keyframes float{50%{transform:translateY(-14px) rotate(6deg)}}
+.letter{
+ text-align:right;line-height:2.15;font-size:18px;background:#fff8fc;border:1px solid #ffd0e2;
+ padding:26px;border-radius:25px;max-height:65vh;overflow:auto;
+ box-shadow:inset 0 0 30px #ffb5d51c;
+}
+.letter p{margin:0 0 18px}
+.highlight{color:#d51f70;font-weight:800}
+.progress{height:7px;background:#ffd8e8;border-radius:20px;margin:20px 0;overflow:hidden}
+.progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,#ff4d98,#d0166e);transition:width .5s}
+.secret{font-size:19px;line-height:2;background:#fff8fc;padding:25px;border-radius:25px;border:1px solid #ffd0e2}
+.music{
+ margin-top:25px;padding:22px;border-radius:26px;background:linear-gradient(135deg,#fff,#fff0f7);
+ border:1px solid #ffc4dc
+}
+.small{font-size:13px;color:#a75a7c;margin-top:10px}
+.heart{display:inline-block;animation:pulse 1.1s infinite}
+@keyframes pulse{50%{transform:scale(1.18)}}
+.confetti{position:fixed;top:-20px;font-size:20px;animation:fall linear forwards;pointer-events:none;z-index:20}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+</style>
+</head>
+<body>
+
+<div class="sticker s1">🌸</div><div class="sticker s2">🎀</div>
+<div class="sticker s3">🧸</div><div class="sticker s4">💗</div>
+<div class="sticker s5">✨</div><div class="sticker s6">🌷</div>
+
+<section id="start" class="screen active">
+ <div class="card">
+   <span class="badge">رسالة سرّية إلى آيات 💌</span>
+   <h1>آيات… سؤال صغير 🌷</h1>
+   <div class="subtitle">هل تحبين من أحبك؟ <span class="heart">♡</span></div>
+   <div class="buttons">
+     <button onclick="yes()">نعم، أحبه 💗</button>
+     <button class="no" onclick="nope()">لا 😳</button>
+   </div>
+   <div id="tease" class="small"></div>
+ </div>
+</section>
+
+<section id="poem" class="screen">
+ <div class="card">
+  <span class="badge">إلى آيات، بكل ما في القلب 🌹</span>
+  <h1>قصيدة لا تنتهي</h1>
+  <div class="progress"><i id="bar"></i></div>
+  <div class="letter" id="letter">
+   <p>يا آيات، يا اسمًا إذا مرّ على القلبِ أزهرتْ فيه الجهات، وكأن الربيع اختار من بين كل الأسماء اسمكِ ليقول: <span class="highlight">هنا الجمال.</span></p>
+   <p>أحبكِ حبًا هادئًا لا يطلب من الدنيا شاهدًا، ولا يرفع صوته كي يُسمع؛ يكفيني أن أعرف أنكِ في قلبي، وأن في هذا القلب مكانًا لا يشبهه مكان.</p>
+   <p>يا آيات، إن كان للعذرية في الحب معنى، فأنتِ معناها الجميل؛ حبٌّ يصون ولا يملك، يشتاق ولا يؤذي، يقترب بالكلمة الطيبة، ويترك للروح كرامتها وسماءها.</p>
+   <p>أنتِ لستِ مجرد وجهٍ أحببته، بل حكاية أحب أن أقرأها كل يوم، وضحكة أتمنى أن تبقى خفيفة على قلبك، واسم حين أكتبه أشعر أن يدي تكتب شيئًا أكبر من الحروف.</p>
+   <p>ولو كان بإمكاني أن أهديكِ شيئًا يليق بكِ، لأهديتكِ صباحًا لا يحزن، وليلًا لا يطول، ووردًا لا يذبل، وقلبًا لا يتعب من الدعاء لكِ بالسعادة.</p>
+   <p>يا آيات، أحب تفاصيلكِ الصغيرة؛ طريقتكِ في الكلام، حضوركِ، تلك الأشياء التي ربما لا تنتبهين إليها، لكنها عندي نجوم كثيرة في سماء واحدة.</p>
+   <p>وإن سألتِني ماذا أريد منكِ، فلست أريد إلا أن تبقي كما أنتِ: جميلة الروح، عزيزة القلب، وأن تعرفي دائمًا أن هناك شخصًا يرى في وجودكِ نعمة تستحق الشكر.</p>
+   <p>قد لا أملك أفخم الكلمات، لكنني أملك شعورًا صادقًا. وقد لا أستطيع أن أعدكِ بأن الدنيا ستكون بلا حزن، لكنني أستطيع أن أقول إنني أتمنى لكِ من الفرح ما يجعل الحزن عابرًا وخفيفًا.</p>
+   <p>يا آيات، لو كان الحب قصيدة، لكتبت اسمكِ في مطلعها، ولو كان وردة، لاخترت لها لون الورد الذي يشبه ابتسامتكِ، ولو كان سماءً، لجعلت فيها قمرًا يذكّرني بكِ كلما نظرت إليه.</p>
+   <p>وفي النهاية، لا أريد لهذه الكلمات أن تكون مجرد رسالة تقرئينها ثم تنسينها؛ أريدها ذكرى صغيرة تقول لكِ: <span class="highlight">كنتِ وما زلتِ شخصًا عزيزًا جدًا على قلبي.</span></p>
+   <p>فيا آيات… إن كان في قلبكِ مكانٌ لحبٍ صادقٍ، فاعلمي أن قلبي قد اختار مكانه منذ زمن. 🌷</p>
+  </div>
+  <div class="buttons"><button onclick="secret()">كملت القراءة 💕</button></div>
+ </div>
+</section>
+
+<section id="secret" class="screen">
+ <div class="card">
+  <span class="badge">سرّ صغير جدًا 🤫💗</span>
+  <h1>ولكِ مني وعد</h1>
+  <div class="secret">
+   آيات، لا أعدكِ بحياةٍ كاملة بلا تعب، ولا بقصةٍ بلا أيام صعبة…
+   لكني أعدكِ أن يكون حبي لكِ محترمًا، صادقًا، وحنونًا؛
+   وأن أفرح لفرحكِ، وأحترم قلبكِ، وأتمنى لكِ الخير حتى في أبسط تفاصيل يومكِ.
+   <br><br>
+   <strong>أنتِ عندي لستِ كلمة حب… أنتِ سببٌ جميل جعل كلمة «حب» لها معنى. 🌸</strong>
+  </div>
+  <div class="buttons"><button onclick="music()">افتحي آخر مفاجأة 🎀</button></div>
+ </div>
+</section>
+
+<section id="music" class="screen">
+ <div class="card">
+  <span class="badge">الأغنية التي اخترتها لكِ 🎧</span>
+  <h1>هذه لكِ يا آيات 💗</h1>
+  <div class="music">
+   <div style="font-size:55px">🎶🌷🎀</div>
+   <p>اضغطي الزر لتشغيل الأغنية.</p>
+   <a class="linkbtn" href="https://youtu.be/CeW8OHlX4og?si=G9Jsi_DXJJlRcsf4" target="_blank" rel="noopener">▶ تشغيل الأغنية</a>
+   <div class="small">ستفتح الأغنية في YouTube.</div>
+  </div>
+  <div class="buttons"><button onclick="restart()">إعادة من البداية ↺</button></div>
+ </div>
+</section>
+
+<script>
+function show(id){
+ document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function confetti(){
+ const icons=['💗','🌸','✨','💕','🌷','🎀','💖','🦋'];
+ for(let i=0;i<45;i++){
+  let e=document.createElement('span'); e.className='confetti';
+  e.textContent=icons[Math.floor(Math.random()*icons.length)];
+  e.style.left=Math.random()*100+'vw';
+  e.style.animationDuration=(2.5+Math.random()*3)+'s';
+  e.style.animationDelay=Math.random()*.8+'s';
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),6000);
+ }
+}
+function yes(){confetti();show('poem')}
+function nope(){
+ const t=document.getElementById('tease');
+ t.textContent='😳 هذا الزر خجول… جربي الزر الوردي 💗';
+}
+function secret(){confetti();show('secret')}
+function music(){confetti();show('music')}
+function restart(){show('start')}
+document.getElementById('letter').addEventListener('scroll',function(){
+ const max=this.scrollHeight-this.clientHeight;
+ const pct=max ? this.scrollTop/max*100 : 100;
+ document.getElementById('bar').style.width=pct+'%';
+});
+</script>
+</body>
+</html>
